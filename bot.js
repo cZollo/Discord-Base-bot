@@ -1,26 +1,23 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const prefix = process.env.BOT_PREFIX; //replace this with const prefix = "your prefix here";
+const prefix = process.env.BOT_PREFIX
 
-client.on('ready', () => {
-    console.log('I am ready!');
-    client.user.setPresence({
-      game: {
-        name: "bb!help l BaseBot",
-        type: 0
-      }
-})
+client.on("message", message => {
+  if (message.author.bot) return;
+  if(message.content.indexOf(prefix) !== 0) return;
+
+  // This is the best way to define args. Trust me.
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+
+  // The list of if/else is replaced with those simple 2 lines:
+  try {
+    let commandFile = require(`./commands/${command}.js`);
+    commandFile.run(client, message, args);
+  } catch (err) {
+    console.error(err);
+  }
 });
 
-client.on('message', message => {
-    if (message.content === prefix + 'ping') {
-    	message.reply('pong');
-  	} else if (message.content === prefix + "github") {
-        message.channel.send("My github repo has been sent to you in a direct message!")
-        message.author.send("Here is my link to my github repo: https://github.com/cZollo/Discord-Base-bot")
-    }
-});
-
-
-client.login(process.env.BOT_TOKEN); //replace this with client.login("your token here");
+client.login(process.env.BOT_TOKEN);
