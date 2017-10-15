@@ -2,13 +2,13 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 const prefix = process.env.BOT_PREFIX
-var game = prefix + "help l " + prefix + "github";
+
 
 client.on("ready", () => {
   console.log("Bot is online!")
   client.user.setPresence({
       game: {
-        name: game
+        name: "In Development!"
         type: 0
       }
 })
