@@ -7,7 +7,7 @@ client.on("ready", () => {
   console.log("Bot is online!")
   client.user.setPresence({
       game: {
-        name: "bb!help l IMMMM READYYYY!",
+        name: prefix + "help l " + prefix + "github"
         type: 0
       }
 })
