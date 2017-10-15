@@ -5,6 +5,12 @@ const prefix = process.env.BOT_PREFIX; //replace this with const prefix = "your 
 
 client.on('ready', () => {
     console.log('I am ready!');
+    client.user.setPresence({
+      game: {
+        name: "bb!help l BaseBot",
+        type: 0
+      }
+})
 });
 
 client.on('message', message => {
