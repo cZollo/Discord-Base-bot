@@ -11,7 +11,7 @@ client.on("ready", () => {
         type: 0
       }
 })
-}
+})
 
 client.on("message", message => {
   if (message.author.bot) return;
