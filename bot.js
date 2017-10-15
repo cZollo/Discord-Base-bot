@@ -3,6 +3,16 @@ const client = new Discord.Client();
 
 const prefix = process.env.BOT_PREFIX
 
+client.on("ready", () => {
+  console.log("Bot is online!")
+  client.user.setPresence({
+      game: {
+        name: "bb!help l IMMMM READYYYY!",
+        type: 0
+      }
+})
+}
+
 client.on("message", message => {
   if (message.author.bot) return;
   if(message.content.indexOf(prefix) !== 0) return;
