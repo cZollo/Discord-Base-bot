@@ -9,7 +9,7 @@ exports.run = (client, message, [mention, ...reason]) => {
 	  }
       
 	  let banMember = message.guild.member(message.mentions.users.first())
-      message.guild.member(banMember).kick();
+      message.guild.member(banMember).ban();
       message.channel.send("User was Banned.");
     } else {
       return message.reply("You must have the role `Moderator` to use this command");
