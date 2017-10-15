@@ -5,7 +5,7 @@ exports.run = (client, message, [mention, ...reason]) => {
 
 	  
 	  if (!message.mentions.users.first()) {
-		  return message.reply("You must mention a user to ban them.")
+		  return message.reply("You must mention a user to kick them.")
 	  }
       
 	  let kickMember = message.guild.member(message.mentions.users.first())
