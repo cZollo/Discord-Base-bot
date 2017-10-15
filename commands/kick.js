@@ -17,7 +17,7 @@ exports.run = (client, message, [mention, ...reason]) => {
 
     const kickMember = message.mentions.members.first();
 
-    kickMember.kick(reason.join(" ")).catch(message.channel.send("Error but this activated").then(member => {
+    kickMember.kick(reason.join(" ")).catch(message.channel.send("Error but this activated")).then(member => {
       message.reply(`${member.user.username} was succesfully kicked.`);
     });
   }
