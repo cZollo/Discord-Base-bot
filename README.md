@@ -1,2 +1,2 @@
 # Discord-Base-bot
-A base bot created in JavaScript for Discord.
+For support on this bot or on how to install it, go read the Wiki!
