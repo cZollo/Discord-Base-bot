@@ -1,7 +1,7 @@
 exports.run = (client, message, [mention, ...reason]) => {
   const moderator = message.guild.roles.find("name", "Moderator");
   if (!moderator)
-    return message.channel.send("The `Moderator` role does not exist, please create a role named `Moderator to use this command");
+    return message.channel.send("The `Moderator` role does not exist, please create a role named `Moderator` to use this command");
 
   if (!message.member.roles.has(moderator.id))
     return message.reply("You can't use this command, you are not a moderator");
