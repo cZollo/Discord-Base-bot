@@ -8,9 +8,6 @@ exports.run = (client, message, [mention, ...reason]) => {
 
   if (message.mentions.users.size === 0) {
     return message.reply("Please mention a user to kick");
-  
-  if (message.mentions.users.size >= 1 )
-  return message.reply("You may only ban one person at a time")
 
     if (!message.guild.me.hasPermission("KICK_MEMBERS"))
       return message.reply("I do not have permission to kick that member");
