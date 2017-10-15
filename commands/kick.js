@@ -1,21 +1,17 @@
 exports.run = (client, message, [mention, ...reason]) => {
-  const moderator = message.guild.roles.find("name", "Moderator");
-  if (!moderator)
-    return message.channel.send("The `Moderator` role does not exist, please create a role named `Moderator` to use this command");
+  let modRole = message.guild.roles.find("name", "Moderator");
+    
+  if(message.member.roles.has(modRole.id)) { 
 
-  if (!message.member.roles.has(moderator.id))
-    return message.reply("You can't use this command, you are not a moderator");
-
-  if (message.mentions.users.size === 0) {
-    return message.reply("Please mention a user to kick");
-
-    if (!message.guild.me.hasPermission("KICK_MEMBERS"))
-      return message.reply("I do not have permission to kick that member");
-
-    const kickMember = message.mentions.members.first();
-
-    kickMember.kick(reason.join(" ")).catch(message.channel.send("Error but this activated")).then(member => {
-      message.reply(`${member.user.username} was succesfully kicked.`);
-    });
-  }
+	  
+	  if (!message.mentions.users.first()) {
+		  return message.reply("You must mention a user to ban them.")
+	  }
+      
+	  let kickMember = message.guild.member(message.mentions.users.first())
+      message.guild.member(kickMember).kick();
+      message.channel.send("User was kicked.");
+    } else {
+      return message.reply("You must have the role `Moderator` to use this command");
+    }
 };
