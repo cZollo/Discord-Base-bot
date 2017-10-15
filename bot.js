@@ -8,9 +8,10 @@ client.on("ready", () => {
   console.log("Bot is online!")
   client.user.setPresence({
       game: {
-        name: "In Development!"
+        name: "In development",
         type: 0
       }
+})
 })
 
 client.on("message", message => {
