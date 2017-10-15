@@ -12,7 +12,6 @@ client.on("ready", () => {
         type: 0
       }
 })
-client.user.setSatus("dnd")
 })
 
 client.on("message", message => {
