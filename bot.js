@@ -7,7 +7,7 @@ function ready() {
   console.log("Bot is onine!")
    client.user.setPresence({
       game: {
-        name: "!help - BaseBot",
+        name: "BaseBot development",
         type: 0
       }
 })
