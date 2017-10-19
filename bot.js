@@ -5,9 +5,10 @@ const prefix = process.env.BOT_PREFIX
 
 function ready() {
   console.log("Bot is onine!")
+  var setGameto = prefix + "help l " + prefix + "github" 
    client.user.setPresence({
       game: {
-        name: "BaseBot development",
+        name: setGameto,
         type: 0
       }
 })
