@@ -21,7 +21,7 @@ client.on("ready", () => {
       }
 })
   console.log("Starting the bot...")
-  setTimeout(ready(), 10000);
+  setTimeout(ready, 10000);
 })
 
 client.on("message", message => {
